@@ -4,7 +4,7 @@ var http = require('http'),
   express = require('express'),
   bodyParser = require('body-parser'),
   session = require('express-session'),
-  cors = require('cors'),
+  // cors = require('cors'),
   passport = require('passport'),
   errorhandler = require('errorhandler'),
   mongoose = require('mongoose');
@@ -14,7 +14,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 // Create global app object
 var app = express();
 
-app.use(cors({ origin: /\.herokuapp\.com$/ }));
+// app.use(cors());
 
 // Normal express config defaults
 app.use(require('morgan')('dev'));
