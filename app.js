@@ -14,7 +14,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 // Create global app object
 var app = express();
 
-app.use(cors({ origin: false }));
+app.use(cors({ allowedHeaders: ['Content-Type', 'Authorization'] }));
 
 // Normal express config defaults
 app.use(require('morgan')('dev'));
