@@ -14,10 +14,16 @@ var isProduction = process.env.NODE_ENV === 'production';
 // Create global app object
 var app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: '*',
+    credentials: true,
+    optionSuccessStatus: 200,
+  })
+);
 
 // Normal express config defaults
-app.use(require('morgan')());
+app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -41,7 +47,7 @@ if (isProduction) {
   mongoose.connect(process.env.MONGODB_URI);
 } else {
   mongoose.connect('mongodb://mongo/kitchen');
-  // mongoose.connect('mongodb://username:password@localhost:27017');
+  // mongoose.connect('mongodb://0.0.0.0:27017/mongo/kitchen');
   mongoose.set('debug', true);
 }
 
