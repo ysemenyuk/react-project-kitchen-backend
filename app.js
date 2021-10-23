@@ -14,7 +14,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 // Create global app object
 var app = express();
 
-app.use(cors({ origin: 'https://damp-wave-00865.herokuapp.com/' }));
+app.use(cors({ origin: false }));
 
 // Normal express config defaults
 app.use(require('morgan')('dev'));
