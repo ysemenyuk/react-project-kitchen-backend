@@ -14,7 +14,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 // Create global app object
 var app = express();
 
-app.use(cors({ allowedHeaders: ['Content-Type', 'Authorization'] }));
+app.use(cors({ origin: /\.herokuapp\.com$/ }));
 
 // Normal express config defaults
 app.use(require('morgan')('dev'));
